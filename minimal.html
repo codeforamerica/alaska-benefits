@@ -18,6 +18,20 @@
       gtag('js', new Date());
 
       gtag('config', 'UA-20825280-42');
+      gtag('config', 'AW-780066360');
+
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-780066360/fRCOCMCvpZQBELi8-_MC',
+            'event_callback': callback
+        });
+        return false;
+      }
     </script>
   </head>
   <body>
@@ -27,7 +41,7 @@
         <h1>Alaska Benefits Application PDF</h1>
         <hr />
         <ol>
-            <li><a href="Alaska%20Application%20for%20Services.pdf">Download this one page PDF</a> for Alaska's benefit programs.</li>
+            <li><a href="Alaska%20Application%20for%20Services.pdf" onclick="return gtag_report_conversion('http://alaskabenefits.org/Alaska%20Application%20for%20Services.pdf')>Download this one page PDF</a> for Alaska's benefit programs.</li>
             <li>Choose which program you want to apply for.</li>
             <li>Fill out just your name, address, phone, and email.</li>
             <li>Print it out.</li>
