@@ -35,6 +35,15 @@
         });
         return false;
       }
+
+      var trackOutboundLink = function(url) {
+        gtag('event', 'click', {
+          'event_category': 'outbound',
+          'event_label': url,
+          'transport_type': 'beacon',
+          'event_callback': function(){document.location = url;}
+        });
+      }
     </script>
   </head>
   <body>
@@ -44,22 +53,22 @@
         <h1 class="display-4">Alaska Benefits Application PDF</h1>
         <hr />
         <ol class="lead">
-            <li><a href="GEN%2050C.pdf" onclick="return gtag_report_conversion('http://alaskabenefits.org/GEN%2050C.pdf')">Download the PDF</a> for Alaska's benefit programs.</li>
+            <li><a href="GEN%2050C.pdf" onclick="trackOutboundLink('http://alaskabenefits.org/GEN%2050C.pdf'); return gtag_report_conversion('http://alaskabenefits.org/GEN%2050C.pdf')">Download the PDF</a> for Alaska's benefit programs.</li>
             <li>Fill it out on your computer or phone.</li>
             <li>Print it out.</li>
             <li>Sign it.</li>
-            <li>Mail it in to the <a href="http://dhss.alaska.gov/dpa/Pages/contacts.aspx">closest office</a>.</li>
+            <li>Mail it in to the <a href="http://dhss.alaska.gov/dpa/Pages/contacts.aspx" onclick="trackOutboundLink('http://dhss.alaska.gov/dpa/Pages/contacts.aspx'); return false;">closest office</a>.</li>
             <li><a href="mailto:andrewh@codeforamerica.org?Subject=Alaska%20Benefits%Application">e-mail</a> us with any questions or suggestions.</li>
         </ol>
       </div>
       <div class="container">
         <div class="row">
           <div class="col">
-            <a href="https://www.codeforamerica.org"><img src="cfa_logo.png" /></a>
+            <a href="https://www.codeforamerica.org" onclick="trackOutboundLink('https://www.codeforamerica.org'); return false;"><img src="cfa_logo.png" /></a>
           </div>
           <div class="col-8">
             <p><small>
-              <a href="https://www.codeforamerica.org">Code for America</a> has partnered with the Alaska Department of Public Assistance. We've made the PDF to apply for benefits fillable on a computer or phone. The original, un-fillable version is online at <a href="http://dhss.alaska.gov/dpa/Pages/features/org/application-gen50.aspx"> on the DHSS webasite</a>.
+              <a href="https://www.codeforamerica.org" onclick="trackOutboundLink('https://www.codeforamerica.org'); return false;">Code for America</a> has partnered with the Alaska Department of Public Assistance. We've made the PDF to apply for benefits fillable on a computer or phone. The original, un-fillable version is online at <a href="http://dhss.alaska.gov/dpa/Pages/features/org/application-gen50.aspx" onclick="trackOutboundLink('http://dhss.alaska.gov/dpa/Pages/features/org/application-gen50.aspx'); return false;"> on the DHSS webasite</a>.
             </small></p>
           </div>
         </div>
