@@ -1,15 +1,32 @@
 <div class="container">
   <br />
   <div class="jumbotron">
-    <h1 class="display-4">All done!</h1>
-    <h2 class="dispay-4">We're mailing a copy of your PDF to Code for America's offices.</h2>
+    <h1 class="display-4">Well done! 🙌</h1>
     <br />
+    <div class="lead">
+      <p>Application signed by <%= signer[:name] %>, <%= signer[:email] %>, at <%= signer[:signed_at] %>.</p>
 
-    <ul>
-      <li>Mail type: USPS Certified Mail</li>
-      <li>Expected delivery date: Friday, 03/22/2019</li>
-      <li>USPS Tracking: <a href="https://tools.usps.com/go/TrackConfirmAction?tLabels=92071902358909000000235925">92071902358909000000235925</a></li> 
-    </ul>
+      <br />
+      
+      <p>We will mail your application to:</p>
+      <address>
+        <strong>Code for America</strong>
+        <br />
+        Sharon Langevin
+        <br />
+        972 Mission St, 5th Floor
+        <br />
+        San Francisco CA, 94103
+      </address>
+
+      <br />
+
+      <p>We'll send it using USPS Certified Mail. The expected delivery date is <strong><%= lob_response["expected_delivery_date"] %></strong>. You can use the following tracking number to ensure its arrival at: <a href="https://tools.usps.com/go/TrackConfirmAction?tLabels=<%= lob_response["tracking_number"] %>"><%= lob_response["tracking_number"] %></a>.</p>
+
+      <br />
+
+      <p>You can download a copy of your application as mailed to the office at <a href="<%= lob_response["url"] %>">this link</a>.</p>
+    </div>
 
   </div>
 </div>
