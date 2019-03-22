@@ -17,4 +17,8 @@ class App < Sinatra::Base
   get "/minimal" do
     erb :minimal
   end
+
+  get "/complete" do
+    erb :complete
+  end
 end
