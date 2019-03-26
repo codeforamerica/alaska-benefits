@@ -13,6 +13,10 @@ class App < Sinatra::Base
     erb :index
   end
 
+  get "/full" do
+    erb :full
+  end
+
   get "/minimal.html" do
     erb :minimal
   end
