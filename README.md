@@ -1,2 +1,3 @@
-# alaska-benefits-application-pdf
-A simple website with instructions on how to apply for government benefits in Alaska.
+# README
+
+Apply online for Alaska's Benefit Programs

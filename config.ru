@@ -1,4 +1,5 @@
-$stdout.sync = true
-require "./app"
+# This file is used by Rack-based servers to start the application.
 
-run App
+require_relative 'config/environment'
+
+run Rails.application

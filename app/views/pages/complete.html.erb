@@ -1,0 +1,30 @@
+<section class="template--styleguide">
+  <div class="grid">
+    <div class="grid__item width-full">
+      <div class="illustration illustration--success">/div>
+      <h1 class="form-card__title">Well done! 🙌</h1>
+
+      <p>Application signed by <%= signer[:name] %>, <%= signer[:email] %>, at <%= signer[:signed_at] %>.</p>
+
+
+      <p>We will mail your application to:</p>
+      <address>
+        <strong>Code for America</strong>
+        <br />
+        Sharon Langevin
+        <br />
+        972 Mission St, 5th Floor
+        <br />
+        San Francisco CA, 94103
+      </address>
+
+      <br />
+
+      <p>We'll send it using USPS Certified Mail. The expected delivery date is <strong><%= lob_response["expected_delivery_date"] %></strong>. You can use the following tracking number to ensure its arrival at: <a href="https://tools.usps.com/go/TrackConfirmAction?tLabels=<%= lob_response["tracking_number"] %>"><%= lob_response["tracking_number"] %></a>.</p>
+
+      <br />
+
+      <p>You can download a copy of your application as mailed to the office at <a href="<%= lob_response["url"] %>">this link</a>.</p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Improving Delivery of Public Benefits in Alaska | Code for America</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-20825280-43"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'UA-20825280-43');
+    </script>
+  </head>
+
+  <body>
+    <div class="page-wrapper">
+      <header class="main-header">
+        <div class="toolbar">
+          <div class="toolbar__left">
+            <h1 class="main-header__title"><a class="main-header__logo" href="/">Alaska Benefits</a></h1>
+          </div>
+        </div>
+      </header>
+      
+      <%= yield %>
+
+      <footer class="main-footer">
+        <div class="grid">
+          <div class="grid__item">
+            <p class="text--small">
+              The Alaska Benefits program is run by <a href="https://www.codeforamerica.org/">Code for America</a>.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
