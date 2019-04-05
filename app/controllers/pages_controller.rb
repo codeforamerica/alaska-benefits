@@ -19,7 +19,7 @@ class PagesController < ApplicationController
       headers: {"Authorization" => "Bearer #{auth_token}"}
     })
 
-    File.write('public/docusigned.pdf', pdf_contents)
+    File.write('public/docusigned.pdf', pdf_contents.force_encoding(Encoding::UTF_8))
 
     sleep 2
 
