@@ -3,9 +3,11 @@
     <div class="grid__item width-full">
       <h1>Apply for Public Benefits in Alaska</h1>
 
-      <a href="GEN%2050C.pdf" onclick="trackOutboundLink('http://alaskabenefits.org/GEN%2050C.pdf'); return gtag_report_conversion('http://alaskabenefits.org/GEN%2050C.pdf')"><button class="button button--cta button--large with-padding-med">Download the PDF</button></a>
+      <a href="GEN%2050C.pdf" onclick="trackOutboundLink('https://www.alaskabenefits.org/GEN%2050C.pdf'); return gtag_report_conversion('https://www.alaskabenefits.org/GEN%2050C.pdf')"><button class="button button--cta button--large with-padding-med">Download the PDF</button></a>
 
-      <p class="text--help"><a href="https://www.codeforamerica.org" onclick="trackOutboundLink('https://www.codeforamerica.org'); return false;">Code for America</a> has created a fillable PDF version of Alaska’s application for benefits to make it easier for you to apply. This version is identical to the paper version but allows you to fill it in using your phone or computer before you print. Follow the steps below to get your application to the Division of Public Assistance for processing.</p>
+      <%= link_to "Submit my application", "/upload", class: "button button--cta button--large with-padding-med" %>
+
+      <p>Download an application for benefits that you can fill in using your phone or computer. Once you’ve completed your application, print it, sign it, and come back here to submit it to the Division of Public Assistance for processing. This site was created by <a href="https://www.codeforamerica.org">Code for America</a> to make it possible for Alaskans to apply for benefits online.</p>
     </div>
   </div>
 </section>
@@ -13,19 +15,13 @@
 <section class="slab slab--white is-tablet-hidden">
   <div class="grid steps">
     <div class="grid__item width-one-third">
-      <div class="emoji emoji--med emoji--page-facing-up"></div>
-      <p class=" with-no-padding"><b>Step 1</b></p>
-      <p class="text--small with-padding-small"><a href="GEN%2050C.pdf" onclick="trackOutboundLink('http://alaskabenefits.org/GEN%2050C.pdf'); return gtag_report_conversion('http://alaskabenefits.org/GEN%2050C.pdf')">Download the PDF</a></p>
+      <%= render 'step1' %>
     </div>
     <div class="grid__item width-one-third">
-      <div class="emoji emoji--med emoji--pencil"></div>
-      <p class=" with-no-padding"><b>Step 2</b></p>
-      <p class="text--small with-padding-small">Fill out the downloaded application. Make sure to sign it.</p>
+      <%= render 'step2' %>
     </div>
     <div class="grid__item width-one-third">
-      <div class="emoji emoji--med emoji--receiver"></div>
-      <p class=" with-no-padding"><b>Step 3</b></p>
-      <p class="text--small with-padding-small">Mail it to your <a href="http://dhss.alaska.gov/dpa/Pages/contacts.aspx">local Public Assistance Office</a>.</p>
+      <%= render 'step3' %>
     </div>
   </div>
 </section>
@@ -33,19 +29,59 @@
 <section class="slab slab--white is-desktop-hidden">
   <div class="vertical-steps text--centered">
     <div class="vertical-steps__step">
-      <div class="emoji emoji--med emoji--page-facing-up"></div>
-      <p class=" with-no-padding"><b>Step 1</b></p>
-      <p class="text--small with-padding-small"><a href="GEN%2050C.pdf" onclick="trackOutboundLink('http://alaskabenefits.org/GEN%2050C.pdf'); return gtag_report_conversion('http://alaskabenefits.org/GEN%2050C.pdf')">Download the PDF</a></p>
+      <%= render 'step1' %>
     </div>
     <div class="vertical-steps__step">
-      <div class="emoji emoji--med emoji--pencil"></div>
-      <p class=" with-no-padding"><b>Step 2</b></p>
-      <p class="text--small with-padding-small">Fill out the downloaded application. Make sure to sign it.</p>
+      <%= render 'step2' %>
     </div>
     <div class="vertical-steps__step">
-      <div class="emoji emoji--med emoji--receiver"></div>
-      <p class=" with-no-padding"><b>Step 3</b></p>
-      <p class="text--small with-padding-small">Mail it to your <a href="http://dhss.alaska.gov/dpa/Pages/contacts.aspx">local Public Assistance Office</a>.</p>
+      <%= render 'step3' %>
+    </div>
+  </div>
+</section>
+
+<section  class="slab">
+  <div class="grid">
+    <h2>What can I apply for?</h2>
+    <div>
+      <div class="grid__item width-one-half">
+        <h3>Federally Facilitated Marketplace</h3>
+        <p>Private health insurance plans, free or low-cost savings plan, and tax credits that pay for insurance.</p>
+      </div>
+      <div class="grid__item width-one-half">
+        <h3>SNAP (formerly Food Stamps)</h3>
+        <p>Helps people buy food.</p>
+
+      </div>
+    </div>
+
+    <div>
+      <div class="grid__item width-one-half">
+        <h3>Medicaid</h3>
+        <p>Offers medical coverage to low income individuals people over 65, disabled, blind pregnant women and families with dependent children. Also helps with Medicare Parts A and B premiums.</p>
+      </div>
+      <div class="grid__item width-one-half">
+        <h3>Temporary Assistance Program</h3>
+        <p>Gives monthly cash payments to eligible families with children.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="grid__item width-one-half">
+        <h3>Chronic & Acute Medical Assistance</h3>
+        <p>Helps people with specific illnesses who don’t qualify for Medicaid and have little or no income.</p>
+      </div>
+      <div class="grid__item width-one-half">
+        <h3>Adult Public Assistance</h3>
+        <p>Gives monthly cash payments and medical assistance to eligible elderly, blind, and disabled persons.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="grid__item width-one-half">
+        <h3>General Relief Assistance</h3>
+        <p>Helps eligible individuals and families with emergency rent and utility needs. Also helps with burial costs.</p>
+      </div>
     </div>
   </div>
 </section>
