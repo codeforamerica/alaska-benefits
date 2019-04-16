@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   mount Cfa::Styleguide::Engine => "/cfa"
 
   root "pages#index"
+  get "/upload", to: "pages#upload"
   get "/minimal", to: "pages#minimal"
   get "/full", to: "pages#full"
   get "/complete", to: "pages#complete"
