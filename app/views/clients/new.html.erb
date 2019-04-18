@@ -1,0 +1,42 @@
+<div class="slab">
+  <main id="main" class="form-card">
+    <header class="form-card__header">
+      <h1 class="form-card__title">
+        Submit your completed application.
+      </h1>
+    </header>
+
+    <div class="form-card__content">
+
+      <%= form_with(model: @client, local: true, builder: CustomCfaFormBuilder) do |form| %>
+
+        <%= form.cfa_select(
+              :office_choice,
+              "What is your local Public Assistance Office",
+              @office_choices,
+              help_text: 'You can <a href="http://dhss.alaska.gov/dpa/Pages/contacts.aspx">call an office</a> if you are not sure which one to pick.',
+            )%>
+
+        <%= form.cfa_checkbox_set_with_follow_up(
+              :must_opt_in_to_one,
+              [
+                { method: :text_opt_in, label: "Text message" },
+                { method: :email_opt_in, label: "Email" }
+              ],
+              label_text: "How can we contact you to let you know your application has been mailed?",
+              first_follow_up: -> { form.cfa_input_field(:phone, 'Phone number') },
+              second_follow_up: -> { form.cfa_input_field(:email, 'Email') }
+        ) %>
+      <% end %>
+    </div>
+
+    <div class="form-card__footer">
+      <footer class="form-card__button_right">
+        <button class="button button--nav  button--primary button--full-mobile" type="submit">
+          Submit my application
+        </button>
+      </footer>
+    </div>
+  </main>
+</div>
+

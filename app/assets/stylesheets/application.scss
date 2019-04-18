@@ -17,5 +17,10 @@
  @import 'cfa_styleguide_main';
 
 .emoji--envelope {
-  background-image: image-url('envelope');
+  background-image: image-url('envelope.png');
+}
+
+.form-card {
+  max-width: 72rem;
+  margin: 0 auto;
 }
