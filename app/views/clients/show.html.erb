@@ -25,5 +25,8 @@
   <%= @client.office_choice %>
 </p>
 
+<%= link_to "PDF", client_download_pdf_path(@client.id) %>
+
+
 <%= link_to 'Edit', edit_client_path(@client) %> |
 <%= link_to 'Back', clients_path %>
