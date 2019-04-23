@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Clients", type: :feature, js: true do
+RSpec.feature "Clients", type: :feature do
   scenario "Client uploads their PDF" do
     visit "/upload"
 
@@ -18,5 +18,21 @@ RSpec.feature "Clients", type: :feature, js: true do
 
     check "Email"
     fill_in "Email", with: "email@example.com"
+  end
+
+  scenario "Client fills out the whole form" do
+    visit "/upload"
+
+    page.attach_file("client[document]", Rails.root.join("spec", "fixtures", "application.pdf"), make_visible: true)
+
+    select "Juneau District Office", from: "What is your local Public Assistance Office"
+
+    check "Text message"
+    fill_in "Phone number", with: "1234567890"
+
+    check "Email"
+    fill_in "Email", with: "email@example.com"
+
+    click_on "Submit my application"
   end
 end
