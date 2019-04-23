@@ -18,7 +18,14 @@ class CustomCfaFormBuilder < Cfa::Styleguide::CfaFormBuilder
     end.join.html_safe
 
     follow_up_html = collection.map do |item|
-      cfa_input_field(item[:follow_up][:method], item[:follow_up][:label], options: { "follow-up": item[:method]} )
+      cfa_input_field(
+        item[:follow_up][:method],
+        item[:follow_up][:label],
+        options: {
+          "follow-up": item[:method]
+        },
+        type: item[:follow_up].fetch(:type, "text")
+      )
     end.join.html_safe
 
     <<~HTML.html_safe

@@ -1,17 +1,18 @@
 default: &default
   adapter: postgresql
-  encoding: unicode
-  pool: 5
 
 development:
   <<: *default
-  database: alaska-benefits-application-pdf_development
+  database: alaska-benefits_development
+
+staging:
+  <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
 
 production:
   <<: *default
-  database: alaska-benefits-application-pdf_production
   url: <%= ENV["DATABASE_URL"] %>
 
 test:
   <<: *default
-  database: alaska-benefits-application-pdf_production
+  database: alaska-benefits_test

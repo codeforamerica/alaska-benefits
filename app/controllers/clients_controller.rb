@@ -7,13 +7,6 @@ class ClientsController < ApplicationController
   # GET /clients/new
   def new
     @client = Client.new
-    @office_choices = {
-      'Northern': ['Fairbanks District Office','Nome District Office'],
-      'Peninsula': ['Homer District Office','Kenai Peninsula Job Center'],
-      'Southcentral – Anchorage/ Mat-Su': ['Gambell District Office', 'Muldoon District Office', 'Mat-Su District Office'],
-      'Southeast': ['Juneau District Office', 'Ketchikan District Office', 'Sitka District Office'],
-     'Southwest': ['Bethel District Office', 'Kodiak District Office']
-    }
   end
 
   # POST /clients

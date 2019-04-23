@@ -22,22 +22,27 @@
           <%= form.file_field :document, style: "display: none;", accept: "application/pdf" %>
         </div>
 
-
         <%= form.cfa_select(
-              :office_choice,
-              "What is your local Public Assistance Office",
-              @office_choices,
-              help_text: 'You can <a href="http://dhss.alaska.gov/dpa/Pages/contacts.aspx">call an office</a> if you are not sure which one to pick.',
-            )%>
+          :office_choice,
+          "What is your local Public Assistance Office",
+          {
+            'Northern': ['Fairbanks District Office','Nome District Office'],
+            'Peninsula': ['Homer District Office','Kenai Peninsula Job Center'],
+            'Southcentral – Anchorage/ Mat-Su': ['Gambell District Office', 'Muldoon District Office', 'Mat-Su District Office'],
+            'Southeast': ['Juneau District Office', 'Ketchikan District Office', 'Sitka District Office'],
+            'Southwest': ['Bethel District Office', 'Kodiak District Office']
+          },
+          help_text: 'You can <a href="http://dhss.alaska.gov/dpa/Pages/contacts.aspx">call an office</a> if you are not sure which one to pick.',
+        )%>
 
         <%= form.cfa_checkbox_set_with_follow_up(
-              :must_opt_in_to_one,
-              [
-                { method: :text_opt_in, label: "Text message", follow_up: { method: :phone, label: 'Phone number' } },
-                { method: :email_opt_in, label: "Email", follow_up: { method: :email, label: 'Email' } }
-              ],
-              label_text: "How can we contact you to let you know your application has been mailed?"
-            ) %>
+          :must_opt_in_to_one,
+          [
+            { method: :text_opt_in, label: "Text message", follow_up: { method: :phone, label: 'Phone number', type: "tel" } },
+            { method: :email_opt_in, label: "Email", follow_up: { method: :email, label: 'Email', type: "email" } }
+          ],
+          label_text: "How can we contact you to let you know your application has been mailed?"
+        ) %>
       </div>
 
       <div class="form-card__footer">
