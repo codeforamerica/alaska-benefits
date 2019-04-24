@@ -1,0 +1,52 @@
+{
+  "addons": [
+    "bucketeer",
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ],
+  "env": {
+    "BUCKETEER_AWS_ACCESS_KEY_ID": {
+      "required": true
+    },
+    "BUCKETEER_AWS_REGION": {
+      "required": true
+    },
+    "BUCKETEER_AWS_SECRET_ACCESS_KEY": {
+      "required": true
+    },
+    "BUCKETEER_BUCKET_NAME": {
+      "required": true
+    },
+    "DOCUSIGN_ACCOUNT_ID": {
+      "required": true
+    },
+    "DOCUSIGN_AUTH_TOKEN": {
+      "required": true
+    },
+    "LANG": {
+      "required": true
+    },
+    "LOB_API_KEY": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_LOG_TO_STDOUT": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "name": "alaska-benefits-application",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
