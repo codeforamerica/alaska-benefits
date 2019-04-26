@@ -38,8 +38,8 @@
         <%= form.cfa_checkbox_set_with_follow_up(
           :must_opt_in_to_one,
           [
-            { method: :text_opt_in, label: "Text message", follow_up: { method: :phone, label: 'Phone number', type: "tel" } },
-            { method: :email_opt_in, label: "Email", follow_up: { method: :email, label: 'Email', type: "email" } }
+            { method: :text_opt_in, label: "Text message", data_follow_up: { method: :phone, label: 'Phone number', type: "tel" } },
+            { method: :email_opt_in, label: "Email", data_follow_up: { method: :email, label: 'Email', type: "email" } }
           ],
           label_text: "How can we contact you to let you know your application has been mailed?"
         ) %>

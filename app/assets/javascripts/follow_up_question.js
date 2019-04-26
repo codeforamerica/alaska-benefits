@@ -1,31 +1,26 @@
-var followUpQuestion = (function() {
+var followUpCheckboxes = (function() {
   var fUQ = {
     init: function() {
-      // The builder only applies styles to underlying elements, while we want to hide the whole form group.
-      $('.question-with-follow-up__follow-up .form-group').hide();
 
-      // add click listeners to initial question inputs
-      $('.question-with-follow-up__question').click(function(e) {
-
-        // show the follow up if there are any checkboxes clicked
-        if ($("input:checkbox:checked").length > 0)
-        {
+      // show or hide the follow up dropdown
+      $("input:checkbox").change(function(_){
+        // keep visible if any checkboxes checked
+        if ($("input:checkbox").is(":checked")) {
           $('.question-with-follow-up__follow-up').show();
-        }
-        else
-        {
+        } else {
           $('.question-with-follow-up__follow-up').hide();
         }
 
-        // show and hide the follow up inputs
-        data_target = e.target.attributes["follow-up-target"]["value"];
-        selector = "*[follow-up='" + data_target + "']";
-        if (e.target["checked"]) {
-          $(selector).parent().show();
-        } else {
-          $(selector).parent().hide();
-        }
+        // show followup inputs
+        show_checked();
       });
+
+      // show errors
+      if ($(".field_with_errors").length > 0) {
+        $(".question-with-follow-up__follow-up").show();
+        // show followup inputs
+        show_checked();
+      }
     }
   };
   return {
@@ -34,5 +29,16 @@ var followUpQuestion = (function() {
 })();
 
 $(document).ready(function () {
-  followUpQuestion.init();
+  followUpCheckboxes.init();
 });
+
+function show_checked(){
+  $("input:checkbox").each(function(index, value){
+    target = $("input[data-follow-up='" + value.dataset.followUpTarget + "']");
+    if ($(value).is(':checked')) {
+      target.parents(".form-group").show()
+    } else {
+      target.parents(".form-group").hide()
+    }
+  });
+}

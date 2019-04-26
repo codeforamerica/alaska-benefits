@@ -7,5 +7,8 @@ class Client < ApplicationRecord
     if !text_opt_in && !email_opt_in
       errors.add(:must_opt_in_to_one, "Please choose one")
     end
+
+    validates_presence_of :phone if text_opt_in
+    validates_presence_of :email if email_opt_in
   end
 end

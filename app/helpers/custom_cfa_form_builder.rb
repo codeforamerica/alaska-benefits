@@ -12,19 +12,19 @@ class CustomCfaFormBuilder < Cfa::Styleguide::CfaFormBuilder
     checkbox_html = collection.map do |item|
       <<~HTML.html_safe
         <label class="checkbox">
-          #{check_box(item[:method], "follow-up-target": item[:method])}  #{item[:label]}
+          #{check_box(item[:method], "data-follow-up-target": item[:method])}  #{item[:label]}
         </label>
       HTML
     end.join.html_safe
 
     follow_up_html = collection.map do |item|
       cfa_input_field(
-        item[:follow_up][:method],
-        item[:follow_up][:label],
+        item[:data_follow_up][:method],
+        item[:data_follow_up][:label],
         options: {
-          "follow-up": item[:method]
+          "data-follow-up": item[:method]
         },
-        type: item[:follow_up].fetch(:type, "text")
+        type: item[:data_follow_up].fetch(:type, "text")
       )
     end.join.html_safe
 
