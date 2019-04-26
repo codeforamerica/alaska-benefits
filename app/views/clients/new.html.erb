@@ -1,0 +1,58 @@
+<div class="slab">
+  <main id="main" class="form-card">
+    <%= form_with(model: @client, local: true, builder: CustomCfaFormBuilder) do |form| %>
+      <header class="form-card__header">
+        <h1 class="form-card__title">
+          Submit your completed application.
+        </h1>
+      </header>
+
+      <div class="form-card__content">
+
+        <div class="form-group">
+          <label for="client_documents">
+            <p class="form-question">Upload your filled out PDF application.</p>
+          </label>
+
+          <div class="uploaded-files"></div>
+
+          <button class="button upload-file-button">
+            Pick a file from this computer <i class="button__icon icon-file_upload"></i>
+          </button>
+          <%= form.file_field :document, style: "display: none;", accept: "application/pdf" %>
+        </div>
+
+        <%= form.cfa_select(
+          :office_choice,
+          "What is your local Public Assistance Office",
+          {
+            'Northern': ['Fairbanks District Office','Nome District Office'],
+            'Peninsula': ['Homer District Office','Kenai Peninsula Job Center'],
+            'Southcentral – Anchorage/ Mat-Su': ['Gambell District Office', 'Muldoon District Office', 'Mat-Su District Office'],
+            'Southeast': ['Juneau District Office', 'Ketchikan District Office', 'Sitka District Office'],
+            'Southwest': ['Bethel District Office', 'Kodiak District Office']
+          },
+          help_text: 'You can <a href="http://dhss.alaska.gov/dpa/Pages/contacts.aspx">call an office</a> if you are not sure which one to pick.',
+        )%>
+
+        <%= form.cfa_checkbox_set_with_follow_up(
+          :must_opt_in_to_one,
+          [
+            { method: :text_opt_in, label: "Text message", data_follow_up: { method: :phone, label: 'Phone number', type: "tel" } },
+            { method: :email_opt_in, label: "Email", data_follow_up: { method: :email, label: 'Email', type: "email" } }
+          ],
+          label_text: "How can we contact you to let you know your application has been mailed?"
+        ) %>
+      </div>
+
+      <div class="form-card__footer">
+        <footer class="form-card__button_right">
+          <button class="button button--nav  button--primary button--full-mobile" type="submit">
+            Submit my application
+          </button>
+        </footer>
+      </div>
+    <% end %>
+  </main>
+</div>
+

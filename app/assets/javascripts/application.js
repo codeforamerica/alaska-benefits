@@ -11,7 +11,8 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require activestorage
-//= require turbolinks
 //= require cfa_styleguide_main
+// = require handlebars.runtime
 //= require_tree .
+
+

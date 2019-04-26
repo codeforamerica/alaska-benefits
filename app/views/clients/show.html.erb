@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @client.phone %>
+</p>
+
+<p>
+  <strong>Text opt in:</strong>
+  <%= @client.text_opt_in %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @client.email %>
+</p>
+
+<p>
+  <strong>Email opt in:</strong>
+  <%= @client.email_opt_in %>
+</p>
+
+<p>
+  <strong>Office choice:</strong>
+  <%= @client.office_choice %>
+</p>
+
+<%= link_to "PDF", client_download_pdf_path(@client.id) %>
+
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>
