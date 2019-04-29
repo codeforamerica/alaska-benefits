@@ -8,23 +8,11 @@
       </header>
 
       <div class="form-card__content">
-
-        <div class="form-group">
-          <label for="client_documents">
-            <p class="form-question">Upload your filled out PDF application.</p>
-          </label>
-
-          <div class="uploaded-files"></div>
-
-          <button class="button upload-file-button">
-            Pick a file from this computer <i class="button__icon icon-file_upload"></i>
-          </button>
-          <%= form.file_field :document, style: "display: none;", accept: "application/pdf" %>
-        </div>
+        <%= form.cfa_file_upload(:document, label_text: 'Upload your filled out PDF application.') %>
 
         <%= form.cfa_select(
           :office_choice,
-          "What is your local Public Assistance Office",
+          "What is your local Public Assistance Office?",
           {
             'Northern': ['Fairbanks District Office','Nome District Office'],
             'Peninsula': ['Homer District Office','Kenai Peninsula Job Center'],

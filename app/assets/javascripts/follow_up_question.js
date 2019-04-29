@@ -16,7 +16,7 @@ var followUpCheckboxes = (function() {
       });
 
       // show errors
-      if ($(".field_with_errors").length > 0) {
+      if ($(".question-with-follow-up__follow-up").find('div.field_with_errors').length > 0) {
         $(".question-with-follow-up__follow-up").show();
         // show followup inputs
         show_checked();
