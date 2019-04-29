@@ -49,4 +49,22 @@ class CustomCfaFormBuilder < Cfa::Styleguide::CfaFormBuilder
     HTML
   end
 
+  def cfa_file_upload(method, label_text: "", button_text: 'Pick a file from this computer <i class="button__icon icon-file_upload"></i>')
+    <<~HTML.html_safe
+      <div class="form-group #{error_state(object, method)}">
+        <p class="form-question">#{label_text}</p>
+
+        <div class="uploaded-files"></div>
+
+        <div class="file-upload">
+          #{file_field(method, class: "file-upload__input")}
+          <label class="file-upload__label button upload-file-button">
+            #{button_text}
+          </label>
+        </div>
+        <br/>
+        #{errors_for(object, method)}
+      </div>
+    HTML
+  end
 end

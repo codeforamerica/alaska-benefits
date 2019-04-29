@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+
+en:
+  errors:
+    messages:
+      blank: "Please add something."
