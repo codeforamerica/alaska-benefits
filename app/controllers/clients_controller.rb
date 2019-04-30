@@ -10,6 +10,10 @@ class ClientsController < ApplicationController
     @client = Client.new
   end
 
+  def index
+    redirect_to "/upload"
+  end
+
   # POST /clients
   def create
     @client = Client.new(client_params)
