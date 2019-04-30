@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :clients do
     get "/download_pdf", to: "clients#pdf"
   end
+  resources :feedbacks, only: [:new, :create]
 
 
 

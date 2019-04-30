@@ -1,32 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div class="slab">
+  <main id="main" class="form-card form-card--transition">
+    <header class="form-card__header form-card__header--confirmation">
+      <div class="emoji emoji--big emoji--checkmark"></div>
+      <h1 class="form-card__title">Your application will be mailed within 24 hours.</h1>
+    </header>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @client.phone %>
-</p>
+    <div class="form-card__content text--centered">
+      <h3>What's next?</h3>
+      <p>Once your application is in the mail, we’ll send you a confirmation with tracking information and expected arrival time.</p>
 
-<p>
-  <strong>Text opt in:</strong>
-  <%= @client.text_opt_in %>
-</p>
+      <div id="feedback-container">
+        <%= form_for @feedback, remote: true, builder: CustomCfaFormBuilder do |form| %>
+          <%= form.cfa_radio_set :rating,
+            label_text: "<h3>How was your experience with this tool?</h3>",
+            collection: [
+              { value: "negative", label: '<span class="radio-button__image emoji emoji--med emoji--frowning-face">Bad</span>' },
+              { value: "neutral", label: '<span class="radio-button__image emoji emoji--med emoji--neutral-face">Ok</span>' },
+              { value: "positive", label: '<span class="radio-button__image emoji emoji--med emoji--grinning-face">Good</span>' }
+            ],
+            layouts: ["inline", "image"] %>
 
-<p>
-  <strong>Email:</strong>
-  <%= @client.email %>
-</p>
+          <%= form.cfa_textarea :comments, '<h3>Do you have any feedback for us?</h3>', options: {rows: '2'} %>
+          <button class="button button--full-mobile" type="submit">Submit</button>
+        <% end %>
+      </div>
 
-<p>
-  <strong>Email opt in:</strong>
-  <%= @client.email_opt_in %>
-</p>
-
-<p>
-  <strong>Office choice:</strong>
-  <%= @client.office_choice %>
-</p>
-
-<%= link_to "PDF", client_download_pdf_path(@client.id) %>
-
-
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+    </div>
+  </main>
+</div>
