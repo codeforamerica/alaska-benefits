@@ -53,7 +53,8 @@ class CustomCfaFormBuilder < Cfa::Styleguide::CfaFormBuilder
     method,
     label_text: "",
     desktop_button_text: 'Pick a file from this computer',
-    mobile_button_text: 'Take a picture'
+    mobile_button_text: 'Take a picture',
+    accept: nil
   )
     <<~HTML.html_safe
       <div class="form-group #{error_state(object, method)}">
@@ -62,7 +63,7 @@ class CustomCfaFormBuilder < Cfa::Styleguide::CfaFormBuilder
         <div class="uploaded-files"></div>
 
         <div class="file-upload">
-          #{file_field(method, class: "file-upload__input")}
+          #{file_field(method, class: "file-upload__input", accept: accept)}
           <label class="file-upload__label upload-file-button button is-tablet-hidden--inline ">
             #{desktop_button_text} <i class="button__icon icon-file_upload"></i>
           </label>
