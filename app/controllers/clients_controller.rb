@@ -28,10 +28,10 @@ class ClientsController < ApplicationController
     end
   end
 
-  def pdf
-    client = Client.find(params[:client_id].to_i)
-    send_data client.document.download, filename: client.document.filename.to_s, content_type: client.document.content_type
-  end
+  # def pdf
+  #   client = Client.find(params[:client_id].to_i)
+  #   send_data client.document.download, filename: client.document.filename.to_s, content_type: client.document.content_type
+  # end
 
   private
 

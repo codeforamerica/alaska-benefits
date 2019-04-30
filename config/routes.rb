@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get "/upload", to: "clients#new"
   resources :clients do
-    get "/download_pdf", to: "clients#pdf"
+    # get "/download_pdf", to: "clients#pdf"
   end
   resources :feedbacks, only: [:new, :create]
 
