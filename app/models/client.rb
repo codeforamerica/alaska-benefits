@@ -1,5 +1,7 @@
 class Client < ApplicationRecord
   has_one_attached :document
+  has_one :feedback
+
   validates :phone, ten_digit_phone_number: true, allow_blank: true
   validate :file_required
   validate :must_opt_in_to_one
