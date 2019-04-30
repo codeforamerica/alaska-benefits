@@ -6,6 +6,7 @@ var directUpload = (function () {
                     deleteFileLink.addEventListener('click', function (e) {
                         e.preventDefault();
                         deleteFileLink.closest('.uploaded-file-detail').remove();
+                        $("input:file").val("")
                         $('.upload-file-button').show();
                     });
                 });
@@ -29,9 +30,7 @@ var directUpload = (function () {
                   };
                   var uploadedFileDetailHtml = HandlebarsTemplates['uploaded_file_detail'](uploadedContext);
                   $('#uploading-file-detail').replaceWith(uploadedFileDetailHtml);
-                  if ($('.uploaded-file-detail').length > 0) {
-                    $('.upload-file-button').hide();
-                  }
+                  $('.upload-file-button').attr('style', 'display: none !important;');
                   addDeleteFileListener();
                 });
             });
