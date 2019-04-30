@@ -8,7 +8,12 @@
       </header>
 
       <div class="form-card__content">
-        <%= form.cfa_file_upload(:document, label_text: 'Upload your filled out PDF application.') %>
+        <%= form.cfa_file_upload(
+              :document,
+              label_text: 'Upload your filled out PDF application.',
+              desktop_button_text: 'Pick a file from this computer',
+              mobile_button_text: 'Pick a file from this device'
+            ) %>
 
         <%= form.cfa_select(
           :office_choice,
