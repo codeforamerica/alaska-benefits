@@ -13,5 +13,4 @@
 //= require rails-ujs
 //= require cfa_styleguide_main
 //= require handlebars.runtime
-//= require turbolinks
 //= require_tree .

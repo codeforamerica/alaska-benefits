@@ -21,7 +21,8 @@ RSpec.feature "Clients", type: :feature do
   end
 
   scenario "Client fills out the whole form" do
-    visit "/upload"
+    visit root_path
+    click_on "Submit my application"
 
     page.attach_file("client[document]", Rails.root.join("spec", "fixtures", "application.pdf"), make_visible: true)
 
@@ -34,5 +35,9 @@ RSpec.feature "Clients", type: :feature do
     fill_in "Email", with: "email@example.com"
 
     click_on "Submit my application"
+
+    choose "Bad", allow_label_click: true
+    fill_in "feedback_comments", with: "Terrible"
+    click_on "Submit"
   end
 end
