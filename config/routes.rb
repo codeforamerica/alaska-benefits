@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root "pages#index"
   get "/download", to: "pages#download"
+  get "/consent", to: "pages#consent"
   get "/upload", to: "clients#new"
 
   resources :clients do
