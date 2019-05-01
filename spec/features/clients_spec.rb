@@ -24,6 +24,7 @@ RSpec.feature "Clients", type: :feature do
     visit root_path
     click_on "Get the application"
     click_on "Submit my application"
+    click_on "Continue"
 
     page.attach_file("client[document]", Rails.root.join("spec", "fixtures", "application.pdf"), make_visible: true)
 
