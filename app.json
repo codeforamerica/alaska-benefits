@@ -21,16 +21,7 @@
     "BUCKETEER_BUCKET_NAME": {
       "required": true
     },
-    "DOCUSIGN_ACCOUNT_ID": {
-      "required": true
-    },
-    "DOCUSIGN_AUTH_TOKEN": {
-      "required": true
-    },
     "LANG": {
-      "required": true
-    },
-    "LOB_API_KEY": {
       "required": true
     },
     "RACK_ENV": {
@@ -47,6 +38,7 @@
   },
   "name": "alaska-benefits-application",
   "scripts": {
+    "rake db:schema:load"
   },
   "stack": "heroku-18"
 }
