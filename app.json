@@ -38,7 +38,8 @@
   },
   "name": "alaska-benefits-application",
   "scripts": {
-    "rake db:schema:load"
+    "rails db:schema:load",
+    "rails db:seed"
   },
   "stack": "heroku-18"
 }

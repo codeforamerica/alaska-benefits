@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Admin.create(email: "admin@example.com", password: "password")
+
+3.times do
+  c = Client.new(text_opt_in: true, phone: "1234567890", office_choice: "Fairbanks District Office")
+  c.document.attach(io: File.open('spec/fixtures/application.pdf'), filename: 'application.pdf')
+  c.save
+end
