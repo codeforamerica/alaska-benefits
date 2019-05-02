@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_30_193514) do
+ActiveRecord::Schema.define(version: 2019_05_02_214359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,11 +36,23 @@ ActiveRecord::Schema.define(version: 2019_04_30_193514) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "admins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
   create_table "clients", force: :cascade do |t|
     t.string "phone"
-    t.boolean "text_opt_in"
+    t.boolean "text_opt_in", default: false
     t.string "email"
-    t.boolean "email_opt_in"
+    t.boolean "email_opt_in", default: false
     t.string "office_choice"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

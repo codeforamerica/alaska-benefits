@@ -1,0 +1,21 @@
+<div class="grid__item width-full">
+  <div class="admin-application-card">
+    <div class="admin-application-card__top">
+      <div class="admin-application-card__left">
+        <h3><%= client.id %></h3>
+
+        <div class="admin-application-card__data-group">
+          <div class="admin-application-card__data">
+            <div>Text Opt In - <%= client.text_opt_in.to_s %> - <%= client.phone %></div>
+            <div>Email Opt In - <%= client.email_opt_in.to_s %> - <%= client.phone %></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-application-card__right">
+        <div><%= client.created_at.strftime("%m-%d-%Y") %></div>
+        <div><%= link_to "Application Link", pdf_path(client.id) %></div>
+      </div>
+    </div>
+  </div>
+</div>

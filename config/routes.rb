@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   mount Cfa::Styleguide::Engine => "/cfa"
@@ -7,10 +8,10 @@ Rails.application.routes.draw do
   get "/download", to: "pages#download"
   get "/consent", to: "pages#consent"
   get "/upload", to: "clients#new"
+  get "/admin", to: "admin#index"
+  get "/admin/clients/:id/pdf", to: "admin#pdf", as: "pdf"
 
-  resources :clients do
-    # get "/download_pdf", to: "clients#pdf"
-  end
+  resources :clients
   resources :feedbacks, only: [:new, :create]
 
 

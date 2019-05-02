@@ -8,6 +8,7 @@ gem 'httparty'
 gem 'pg'
 gem 'handlebars_assets'
 gem "aws-sdk-s3", require: false
+gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
