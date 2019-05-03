@@ -27,6 +27,9 @@
     "RACK_ENV": {
       "required": true
     },
+    "RAILS_ENV": {
+      "required": true
+    },
     "RAILS_LOG_TO_STDOUT": {
       "required": true
     }
@@ -38,8 +41,7 @@
   },
   "name": "alaska-benefits-application",
   "scripts": {
-    "rails db:schema:load",
-    "rails db:seed"
+    "postdeploy": "bundle exec rails db:schema:load db:seed"
   },
   "stack": "heroku-18"
 }
