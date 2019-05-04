@@ -10,7 +10,6 @@ class FeedbacksController < ApplicationController
     @feedback = Feedback.new(feedback_params)
 
     respond_to do |f|
-      f.html { redirect_to tasks_url }
       f.js
     end
   end

@@ -6,16 +6,20 @@
 
         <div class="admin-application-card__data-group">
           <div class="admin-application-card__data">
-            <div>Text Opt In - <%= client.text_opt_in.to_s %> - <%= client.phone %></div>
-            <div>Email Opt In - <%= client.email_opt_in.to_s %> - <%= client.phone %></div>
+            <p>Text Opt In - <%= client.text_opt_in.to_s %> - <%= client.phone %></p>
+            <p>Email Opt In - <%= client.email_opt_in.to_s %> - <%= client.email %></p>
           </div>
         </div>
       </div>
 
       <div class="admin-application-card__right">
-        <div><%= client.created_at.strftime("%m-%d-%Y") %></div>
-        <div><%= link_to "Application Link", pdf_path(client.id) %></div>
+        <p><%= client.created_at.strftime("%m-%d-%Y") %></p>
+        <%= link_to "Application Link", pdf_path(client) %>
       </div>
     </div>
+
+    <hr />
+
+    <%= link_to "Mail Application to State", mail_pdf_path(client.id), class: "button button--small with-padding-small", remote: true, method: :post %>
   </div>
 </div>

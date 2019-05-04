@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   get "/upload", to: "clients#new"
   get "/admin", to: "admin#index"
   get "/admin/clients/:id/pdf", to: "admin#pdf", as: "pdf"
+  post "/admin/clients/:id/mail_pdf", to: "admin#mail_pdf", as: "mail_pdf"
 
   resources :clients
   resources :feedbacks, only: [:new, :create]
-
 
 
 
