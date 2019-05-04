@@ -21,6 +21,9 @@
     "BUCKETEER_BUCKET_NAME": {
       "required": true
     },
+    "LOB_API_KEY": {
+      "required": true
+    },
     "LANG": {
       "required": true
     },
