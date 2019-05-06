@@ -17,12 +17,12 @@ class AdminController < ApplicationController
     lob.letters.create(
       description: "An Alaska Benefits application",
       to: {
-        name: "Faibanks District Office",
-        address_line1: "675 7th Avenue",
-        address_line2: "Station E",
-        address_city: "Fairbanks",
-        address_state: "AK",
-        address_zip: "99701"
+        name: client.office_address[:name],
+        address_line1: client.office_address[:address_line1],
+        address_line2: client.office_address[:address_line2],
+        address_city: client.office_address[:address_city],
+        address_state: client.office_address[:address_state],
+        address_zip: client.office_address[:address_zip]
       },
       from: {
         company: "Code for America",
