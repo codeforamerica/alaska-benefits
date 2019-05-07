@@ -19,6 +19,8 @@ class ClientsController < ApplicationController
   end
 
   def update
+    authenticate_admin!
+
     @client = Client.find params[:id]
     @client.update client_params
 
