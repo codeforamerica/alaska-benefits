@@ -40,11 +40,13 @@
       </div>
     </div>
 
+    <% if client.address? %>
     <hr />
-    <% if client.mailed? %>
-      <button class="button button--small with-padding-small" disabled>Mailed <i class="icon-done"></i></button>
-    <% else %>
-      <%= link_to "Mail Application to State", mail_pdf_path(client.id), class: "button button--danger button--small with-padding-small", method: :post %>
+      <% if client.mailed? %>
+        <button class="button button--small with-padding-small" disabled>Mailed <i class="icon-done"></i></button>
+      <% else %>
+        <%= link_to "Mail Application to State", mail_pdf_path(client.id), class: "button button--danger button--small with-padding-small", method: :post %>
+      <% end %>
     <% end %>
   </div>
 </div>
