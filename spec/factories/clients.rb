@@ -16,6 +16,7 @@ FactoryBot.define do
   factory :client do
     text_opt_in { true }
     phone { "1234567890" }
+    office_choice { "Nome District Office" }
 
     document { fixture_file_upload(Rails.root.join('spec', 'fixtures', 'application.pdf')) }
   end
