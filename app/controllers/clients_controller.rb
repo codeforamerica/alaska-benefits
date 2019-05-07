@@ -22,7 +22,7 @@ class ClientsController < ApplicationController
 
     if @client.save
       session[:current_client_id] = @client.id
-      redirect_to @client, notice: 'Client was successfully created.'
+      redirect_to @client
     else
       render :new
     end
