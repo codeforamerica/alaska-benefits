@@ -28,6 +28,13 @@ RSpec.feature "Admin", type: :feature do
 
   scenario "Admins can mail the client's application" do
     visit "/admin"
+    fill_in "Name", with: "Full Name Example"
+    fill_in "Street Address", with: "123 Main St"
+    fill_in "City", with: "Anchorage"
+    fill_in "State", with: "AK"
+    fill_in "Zip Code", with: "12345"
+    click_on "Add address"
+
     click_on "Mail Application to State"
     expect(page.html).to include 'Mailed <i class="icon-done"></i>'
   end
