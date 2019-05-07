@@ -2,15 +2,20 @@
 #
 # Table name: clients
 #
-#  id            :bigint           not null, primary key
-#  email         :string
-#  email_opt_in  :boolean          default(FALSE)
-#  mailed        :boolean          default(FALSE)
-#  office_choice :string
-#  phone         :string
-#  text_opt_in   :boolean          default(FALSE)
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
+#  id             :bigint           not null, primary key
+#  city           :string
+#  email          :string
+#  email_opt_in   :boolean          default(FALSE)
+#  mailed         :boolean          default(FALSE)
+#  name           :string
+#  office_choice  :string
+#  phone          :string
+#  state          :string
+#  street_address :string
+#  text_opt_in    :boolean          default(FALSE)
+#  zip_code       :string
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
 #
 
 class Client < ApplicationRecord
@@ -32,6 +37,10 @@ class Client < ApplicationRecord
 
     validates_presence_of :phone, message: "Please add your phone number" if text_opt_in
     validates_presence_of :email, message: "Please add your email address" if email_opt_in
+  end
+
+  def address?
+    [name, street_address, city, state, zip_code].all?
   end
 
   def office_address

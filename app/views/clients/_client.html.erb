@@ -10,6 +10,28 @@
             <p>Email Opt In - <%= client.email_opt_in.to_s %> - <%= client.email %></p>
           </div>
         </div>
+
+        <% if client.address? %>
+          <p><%= client.name %></p>
+          <p><%= client.street_address %></p>
+          <p><%= client.city %></p>
+          <p><%= client.state %></p>
+          <p><%= client.zip_code %></p>
+        <% else %>
+          <div class="admin-application-card__data-group">
+            <div class="admin-application-card__data">
+              <%= form_for(client, builder: CustomCfaFormBuilder) do |form| %>
+                <%= form.cfa_input_field :name, "Name" %>
+                <%= form.cfa_input_field :street_address, "Street Address" %>
+                <%= form.cfa_input_field :city, "City" %>
+                <%= form.cfa_input_field :state, "State" %>
+                <%= form.cfa_input_field :zip_code, "Zip Code" %>
+                <%= form.submit "Add address", class: "button" %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+
       </div>
 
       <div class="admin-application-card__right">

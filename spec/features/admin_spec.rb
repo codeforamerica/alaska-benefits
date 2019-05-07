@@ -14,8 +14,16 @@ RSpec.feature "Admin", type: :feature do
     expect(page).to have_content "Application Link"
   end
 
-  xscenario "admin can add a clients address" do
+  scenario "admin can add a clients address" do
     visit "/admin"
+    fill_in "Name", with: "Full Name Example"
+    fill_in "Street Address", with: "123 Main St"
+    fill_in "City", with: "Anchorage"
+    fill_in "State", with: "AK"
+    fill_in "Zip Code", with: "12345"
+    click_on "Add address"
+
+    expect(page).to have_content "123 Main St"
   end
 
   scenario "Admins can mail the client's application" do

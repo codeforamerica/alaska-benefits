@@ -25,11 +25,11 @@ class AdminController < ApplicationController
         address_zip: client.office_address[:address_zip]
       },
       from: {
-        company: "Code for America",
-        address_line1: "972 Mission St",
-        address_city: "San Francisco",
-        address_state: "CA",
-        address_zip: "94103"
+        name: client.name,
+        address_line1: client.street_address,
+        address_city: client.city,
+        address_state: client.state,
+        address_zip: client.zip_code
       },
       file: application_temp_url(client),
       color: true,
@@ -37,8 +37,6 @@ class AdminController < ApplicationController
       extra_service: "certified",
       double_sided: false
     )
-
-    puts response
 
     client.update mailed: true
     redirect_to "/admin"
