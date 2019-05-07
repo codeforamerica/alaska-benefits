@@ -26,6 +26,7 @@ RSpec.describe AdminController do
 
       expect(lob_mock).to have_received(:letters)
       expect(response).to have_http_status(:success)
+      expect(response).to redirect_to "/admin"
     end
   end
 end
