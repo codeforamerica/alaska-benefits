@@ -5,6 +5,7 @@
 #  id            :bigint           not null, primary key
 #  email         :string
 #  email_opt_in  :boolean          default(FALSE)
+#  mailed        :boolean          default(FALSE)
 #  office_choice :string
 #  phone         :string
 #  text_opt_in   :boolean          default(FALSE)

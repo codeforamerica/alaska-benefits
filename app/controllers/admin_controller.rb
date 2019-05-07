@@ -14,7 +14,7 @@ class AdminController < ApplicationController
     client = Client.find(params[:id].to_i)
 
     lob = Lob::Client.new(api_key: ENV['LOB_API_KEY'])
-    lob.letters.create(
+    response = lob.letters.create(
       description: "An Alaska Benefits application",
       to: {
         name: client.office_address[:name],
@@ -37,6 +37,11 @@ class AdminController < ApplicationController
       extra_service: "certified",
       double_sided: false
     )
+
+    puts response
+
+    client.update mailed: true
+    redirect_to "/admin"
   end
 
   private
